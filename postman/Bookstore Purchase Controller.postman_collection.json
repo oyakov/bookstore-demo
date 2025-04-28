@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "59d38d4a-c2cc-42ae-9381-6294851f88fe",
+		"name": "Bookstore Purchase Controller",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7043706",
+		"_collection_link": "https://team66-7004.postman.co/workspace/BookstoreDemo~f633320e-e370-46d3-b45d-e871e5502ec8/collection/7043706-59d38d4a-c2cc-42ae-9381-6294851f88fe?action=share&source=collection_link&creator=7043706"
+	},
+	"item": [
+		{
+			"name": "Purchase Books",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerId\": 1,\n  \"bookIds\": [101, 102]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/purchase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

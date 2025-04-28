@@ -1,0 +1,52 @@
+paths:
+  /purchase:
+    post:
+      operationId: purchaseBooks
+      summary: Purchase books
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseRequest'
+      responses:
+        '200':
+          description: Purchase completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseResponse'
+
+components:
+  schemas:
+    PurchaseRequest:
+      type: object
+      required:
+        - customerId
+        - bookIds
+      properties:
+        customerId:
+          type: integer
+          format: int64
+        bookIds:
+          type: array
+          minItems: 1
+          items:
+            type: integer
+            format: int64
+            minimum: 1
+
+    PurchaseResponse:
+      type: object
+      required:
+        - orderId
+        - totalPrice
+      properties:
+        orderId:
+          type: integer
+          format: int64
+        totalPrice:
+          type: string
+          format: decimal
+          minimum: 0.0
+

@@ -1,0 +1,34 @@
+openapi: 3.0.3
+info:
+  title: Bookstore API
+  description: API for managing bookstore operations
+  version: 1.0.0
+
+paths:
+  /books:
+    $ref: './books-api.yaml#/paths/~1books'
+  /books/{id}:
+    $ref: './books-api.yaml#/paths/~1books~1{id}'
+  /customers:
+    $ref: './customers-api.yaml#/paths/~1customers'
+  /customers/{id}:
+    $ref: './customers-api.yaml#/paths/~1customers~1{id}'
+  /customers/{id}/loyalty:
+    $ref: './customers-api.yaml#/paths/~1customers~1{id}~1loyalty'
+  /purchase:
+    $ref: './purchases-api.yaml#/paths/~1purchase'
+
+components:
+  schemas:
+    BookRequest:
+      $ref: './books-api.yaml#/components/schemas/BookRequest'
+    BookResponse:
+      $ref: './books-api.yaml#/components/schemas/BookResponse'
+    CustomerRequest:
+      $ref: './customers-api.yaml#/components/schemas/CustomerRequest'
+    CustomerResponse:
+      $ref: './customers-api.yaml#/components/schemas/CustomerResponse'
+    PurchaseRequest:
+      $ref: './purchases-api.yaml#/components/schemas/PurchaseRequest'
+    PurchaseResponse:
+      $ref: './purchases-api.yaml#/components/schemas/PurchaseResponse'

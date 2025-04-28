@@ -1,0 +1,15 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/bookstore
+        username: postgres
+        password: postgres
+    flyway:
+        enabled: true
+    jpa:
+        hibernate:
+            ddl-auto: none
+        show-sql: true
+
+bookstore:
+    discount:
+        regular-multibuy-discount: 0.90 # example of configuration property set to control the flow without hardcoding values
