@@ -54,22 +54,26 @@ Use Postman collections exported into *.postman files in /postman folder
 
 ## Key Design Decisions
 
-### **1. Separation of Concerns**
+### **1. API-first design with OpenAPI**
+- Design API specifications first and generate model and interfaces with maven plugin
+- Controllers implement generated API interfaces
+
+### **2. Separation of Concerns**
 - **Entities:** Represent DB structure (`BookEntity`, `CustomerEntity`, `PurchaseOrderEntity`).
 - **DTOs (Requests/Responses):** Generated from OpenAPI specs, keeping external contracts stable.
 - **Converters:** Implemented via Spring's `ConversionService` for flexible mapping between DTOs and Entities.
 
-### **2. Pricing Logic Encapsulated**
+### **3. Pricing Logic Encapsulated**
 - Implemented in **PriceCalculator** domain service, isolated from persistence logic.
 
-### **3. Concurrency Control**
+### **4. Concurrency Control**
 - **Pessimistic locking** on book stock updates to prevent overselling.
 
-### **4. Loyalty Points Logic**
+### **5. Loyalty Points Logic**
 - 1 point awarded per purchased book.
 - Once **10 points** are accumulated, the customer can get one **Regular** or **Old Edition** book for free. After application, points reset.
 
-### **5. Cart Design (Draft)**
+### **6. Cart Design (Draft)**
 - Cart integration not implemented completely due to time restriction
 - Only **one active cart per customer** at a time.
 - Cart includes:
@@ -77,14 +81,14 @@ Use Postman collections exported into *.postman files in /postman folder
     - `checkedOut` flag
 - **Can reuse to implement more complex checkout process in the future**:
 
-### **6. Database migration using Flyway**
+### **7. Database migration using Flyway**
 - Enables clear versioning of the schema
 - Helps to plug in DDL scripts into tests
 
-### **7. Hibernate for ORM layer**
+### **8. Hibernate for ORM layer**
 - Ideal for prototyping demo solution
 - Can rework repositories to use JDBC Template for more control over queries
 
-### **8. Docker Compose to deploy the solution**
+### **9. Docker Compose to deploy the solution**
 - Easily launch the solution in one command
 - Bundled with the database
