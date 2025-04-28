@@ -70,14 +70,21 @@ Visit [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagge
 - Once **10 points** are accumulated, the customer can get one **Regular** or **Old Edition** book for free. After application, points reset.
 
 ### **5. Cart Design (Draft)**
+- Cart integration not implemented completely due to time restriction
 - Only **one active cart per customer** at a time.
 - Cart includes:
     - `List<BookEntity>`
     - `checkedOut` flag
-- **Checkout process**:
-    - Applies pricing and loyalty rules.
-    - Converts the cart to a `PurchaseOrder`.
+- **Can reuse to implement more complex checkout process in the future**:
 
 ### **6. Database migration using Flyway**
 - Enables clear versioning of the schema
 - Helps to plug in DDL scripts into tests
+
+### **7. Hibernate for ORM layer**
+- Ideal for prototyping demo solution
+- Can rework repositories to use JDBC Template for more control over queries
+
+### **8. Docker Compose to deploy the solution**
+- Easily launch the solution in one command
+- Bundled with the database
