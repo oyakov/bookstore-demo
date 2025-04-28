@@ -49,7 +49,7 @@ cd bookstore-backend
 3. **API Documentation:**
 
 Visit [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
-
+Use Postman collections exported into *.postman files in /postman folder
 ---
 
 ## Key Design Decisions
